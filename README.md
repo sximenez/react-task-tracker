@@ -1,70 +1,176 @@
-# Getting Started with Create React App
+# React Crash Course
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Index
 
-## Available Scripts
+[Lecture 0](#lecture-0)
 
-In the project directory, you can run:
+[Lecture 1](#lecture-1)
 
-### `npm start`
+---
+## React is a JS library or framework
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Use to build ```user interfaces```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Created and maintained by ```Facebook```
 
-### `npm test`
+Strictly ```frontend``` (runs on client) vs PHP which runs on server and servers html to client
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React creates ```single page applications``` (SPA),
+compiled to a JS bundle and run on client
 
-### `npm run build`
+Since strictly frontend, React can be linked to backend via:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+MERN stack: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+MongoDB [database]
+express.js [backend framework]
+React.js [frontend framework]
+Node.js [runtime]
+```
+```
+React on front
+Laravel on back
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
+## Library vs Framework
+---
 
-### `npm run eject`
+Comparable to Vue.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+React uses packages to act like a framework
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A framework puts a ```frame``` on what you can do
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+You have to follow its ```rules```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Components in a library can be called when needed
 
-## Learn More
+Serve JSON from server, then use React to manage that data on frontend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Test each framework, adapt to frameworks used professionnally
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+## Why React ?
 
-### Code Splitting
+### Structure the view layer of your application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```MVC``` or model view controller is a popular design pattern for sorftware
 
-### Analyzing the Bundle Size
+- Model deals with data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Controller deals with requests and routing
 
-### Making a Progressive Web App
+- View is the UI, the user interface
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+React is the V in MVC
+```
 
-### Advanced Configuration
+### Limit error using reusable components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+You can use React to build user interfaces with ```reusable components```
 
-### Deployment
+This reduces the amount of possible error since it creates coding conventions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Use JSX (JavaScript Syntax Extension) or dynamic HTML
 
-### `npm run build` fails to minify
+Write formatted JS in the form of ```dynamic HTML```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Have very interactive interfaces (DOM)
+
+Update the ```DOM``` dynamically (AJAX?) for faster and more dynamic experience
+
+### Testing benefits
+### Popular, in-demand, and ease to use in teams
+
+---
+## Components
+
+```
+When using React/Vue, think of your UI as a bunch of separate components
+```
+
+### Create a component
+
+You can use both ```classes``` and ```functions```
+
+```
+More common way: functions with hooks
+```
+
+### State
+
+Components are dynamic: they contain ```state```
+
+Example: dropdown menus have an open and closed state
+
+### Hooks
+
+```Hooks``` are functions that let us "hook into a state"
+
+The more common:
+
+```useState```: return a value and an update function
+
+```useEffect```: make HTTP requests (like AJAX)
+
+---
+## Learning React
+
+```
+1. Build the user interface
+2. Implement a JSON server: kind of fake backend to see how React would work in a fullstack environment
+```
+
+### Start React app
+
+Use CLI to set up a ```boilerplate``` with all the folders, files and assets
+
+1. Access ```npm``` via NODE.js (download and install)
+2. Install React dev tools to see all components, props and states
+
+```Bash
+npm --version
+
+npx create-react-app name-of-app
+
+cd name-of-app
+
+code . // to open with VS code
+```
+
+```Important```: this approach installs many libraries on the hard disk, for production purposes
+
+It is possible to do the same via CDN-fetched [libraries](https://reactjs.org/docs/cdn-links.html)
+
+```Bash
+npm start (on VS terminal)
+```
+
+React ```injects components``` into a very basic html.index file via a div with id ```root```
+
+It does it through a function run within that div
+
+```Javascript
+function App() {
+  return (
+    <div className="App">
+      <h1>Hello from React</h1>
+      <h2>Hello</h2>
+  </div>
+  );
+}
+
+export default App;
+```
+
+```
+State should be at the top level or App level
+
+State gets passed down
+
+Actions get passed up
+```
